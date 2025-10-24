@@ -22,22 +22,22 @@ const Home = () => {
   } = useTypingTest();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       <div className="container mx-auto px-6 py-20 max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-8">
+        <header className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-2">
-            🚀 Typing Speed Test
+            🚀 Free Online Typing Speed Test
           </h1>
           <p className="text-gray-600 text-lg">
-            Test your typing speed and accuracy with Indonesian words
+            Test your typing speed and accuracy with Indonesian words. Improve your WPM (Words Per Minute) and keyboard skills with our free typing test.
           </p>
-        </div>
+        </header>
 
         {/* Main Content */}
-        <div className="space-y-6">
+        <section className="space-y-6" aria-label="Typing test interface">
           {/* Word Display Container */}
-          <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
+          <article className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
             <WordContainer
               ref={wordsContainerRef}
               words={currentWords}
@@ -46,10 +46,10 @@ const Home = () => {
               results={result}
               activeWordRef={activeWordRef}
             />
-          </div>
+          </article>
 
           {/* Input and Timer Section */}
-          <div className="flex items-center gap-4 px-4">
+          <section className="flex items-center gap-4 px-4" aria-label="Typing controls">
             <TypingInput
               ref={inputRef}
               value={typedWord}
@@ -59,20 +59,22 @@ const Home = () => {
               placeholder={isTimeUp ? "Test completed!" : "Start typing to begin..."}
             />
             <Timer time={time} isTimeUp={isTimeUp} />
-          </div>
+          </section>
 
           {/* Instructions */}
           {!isTimeUp && (
-            <div className="text-center">
+            <aside className="text-center" aria-label="Typing instructions">
               <p className="text-gray-600 text-sm" id="typing-instructions">
                 Press <kbd className="px-2 py-1 bg-gray-200 rounded text-xs">Space</kbd> to submit each word
               </p>
-            </div>
+            </aside>
           )}
 
           {/* Results Display */}
           {finalResult && (
-            <ResultsDisplay result={finalResult} />
+            <section aria-label="Typing test results">
+              <ResultsDisplay result={finalResult} />
+            </section>
           )}
 
           {/* Reset Button */}
@@ -81,14 +83,15 @@ const Home = () => {
               <button
                 onClick={resetTest}
                 className="px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+                aria-label="Start a new typing test"
               >
                 🔄 Try Again
               </button>
             </div>
           )}
-        </div>
+        </section>
       </div>
-    </div>
+    </main>
   );
 };
 

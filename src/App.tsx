@@ -5,20 +5,27 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import { useAnalytics } from './hooks';
 
-function App() {
-  // Initialize analytics tracking
+// Analytics wrapper component that runs inside Router context
+const AppWithAnalytics = () => {
+  // Initialize analytics tracking inside Router context
   useAnalytics();
 
   return (
+    <div className="min-h-screen bg-gray-100">
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </div>
+  );
+};
+
+function App() {
+  return (
     <Router>
-      <div className="min-h-screen bg-gray-100">
-        <Navigation />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </div>
+      <AppWithAnalytics />
     </Router>
   );
 }

@@ -25,18 +25,24 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-12 px-4">
+    <main className="min-h-screen bg-gray-100 py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        <div className="bg-white rounded-lg shadow-lg p-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-8 text-center">
-            Contact Us
-          </h1>
+        <article className="bg-white rounded-lg shadow-lg p-8">
+          <header>
+            <h1 className="text-4xl font-bold text-gray-800 mb-8 text-center">
+              Contact Us - Get in Touch with TypingTest
+            </h1>
+            <p className="text-gray-600 text-center mb-8">
+              Have questions about our free typing test? Need help improving your typing speed? 
+              We're here to help you achieve your typing goals.
+            </p>
+          </header>
           
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Information */}
-            <div>
+            <section>
               <h2 className="text-2xl font-semibold text-gray-700 mb-6">
-                Get in Touch
+                Get in Touch with Our Team
               </h2>
               
               <div className="space-y-4">
@@ -100,10 +106,10 @@ const Contact = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </section>
             
             {/* Contact Form */}
-            <div>
+            <section>
               <h2 className="text-2xl font-semibold text-gray-700 mb-6">
                 Send us a Message
               </h2>
@@ -180,11 +186,11 @@ const Contact = () => {
                   Send Message
                 </button>
               </form>
-            </div>
+            </section>
           </div>
-        </div>
+        </article>
       </div>
-    </div>
+    </main>
   );
 };
 

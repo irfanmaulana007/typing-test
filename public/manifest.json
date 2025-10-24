@@ -1,0 +1,22 @@
+{
+  "name": "TypingTest - Free Online Typing Speed Test",
+  "short_name": "TypingTest",
+  "description": "Test your typing speed and accuracy with our free online typing test. Practice with Indonesian words, track your WPM, and improve your keyboard skills.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3B82F6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "productivity", "utilities"],
+  "lang": "en",
+  "scope": "/",
+  "prefer_related_applications": false
+}
