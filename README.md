@@ -98,6 +98,17 @@ src/
 └── main.tsx       # Application entry point
 ```
 
+## Analytics
+
+This project includes Google Analytics integration to track visitor metrics and user engagement. See [ANALYTICS_SETUP.md](./ANALYTICS_SETUP.md) for detailed setup instructions.
+
+### Tracked Events
+- Page views and navigation
+- Typing test start/completion
+- User engagement metrics
+- Session duration
+- Performance metrics (WPM, accuracy)
+
 ## Pages
 
 - **Home** (`/`) - Main landing page with app introduction

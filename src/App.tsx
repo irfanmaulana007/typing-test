@@ -3,8 +3,12 @@ import Navigation from './components/Navigation';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import { useAnalytics } from './hooks';
 
 function App() {
+  // Initialize analytics tracking
+  useAnalytics();
+
   return (
     <Router>
       <div className="min-h-screen bg-gray-100">

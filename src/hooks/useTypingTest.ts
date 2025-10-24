@@ -1,8 +1,13 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useTimer } from './useTimer';
 import { useTypingStats } from './useTypingStats';
 import { useWordManager } from './useWordManager';
 import { KEYBOARD_KEYS } from '../constants/typing';
+import { 
+  trackTypingTestStart, 
+  trackTypingTestComplete, 
+  trackUserEngagement 
+} from '../utils/analytics';
 
 export const useTypingTest = () => {
   const [isRunning, setIsRunning] = useState(false);
@@ -35,6 +40,9 @@ export const useTypingTest = () => {
 
     if (!isRunning) {
       setIsRunning(true);
+      // Track typing test start
+      trackTypingTestStart('standard');
+      trackUserEngagement('typing_started');
     }
     
     // Track character-level statistics
@@ -73,9 +81,28 @@ export const useTypingTest = () => {
     resetStats();
     resetWordManager();
     inputRef.current?.focus();
+    // Track test reset
+    trackUserEngagement('test_reset');
   };
 
   const finalResult = calculateFinalResult(isTimeUp);
+
+  // Track test completion when time is up
+  useEffect(() => {
+    if (isTimeUp && finalResult) {
+      trackTypingTestComplete({
+        wpm: finalResult.wpm,
+        accuracy: finalResult.accuracy,
+        timeSpent: time,
+        wordsTyped: finalResult.totalWords,
+        errors: finalResult.incorrectWords,
+      });
+      trackUserEngagement('test_completed', {
+        wpm: finalResult.wpm,
+        accuracy: finalResult.accuracy,
+      });
+    }
+  }, [isTimeUp, finalResult, time]);
 
   return {
     // State
