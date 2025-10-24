@@ -19,9 +19,14 @@ const Navigation = () => {
           <div className="flex items-center">
             <Link 
               to="/" 
-              className="flex-shrink-0 flex items-center"
+              className="flex-shrink-0 flex items-center space-x-2"
               onClick={handleLogoClick}
             >
+              <img 
+                src="/android-chrome-192x192.png" 
+                alt="TypingTest Logo" 
+                className="h-8 w-8"
+              />
               <span className="text-2xl font-bold text-blue-600">
                 TypingTest
               </span>
