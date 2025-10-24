@@ -59,6 +59,14 @@ export const useWordManager = () => {
   };
 
   const resetWordManager = () => {
+    if (wordsContainerRef.current) {
+      const container = wordsContainerRef.current;
+      container.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }
+    
     setCurrentIndex(0);
     setTypedWord('');
   };

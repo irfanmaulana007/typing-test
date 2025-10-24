@@ -1,11 +1,11 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Navigation = () => {
-  const location = useLocation();
+  // const location = useLocation();
 
-  const isActive = (path: string) => {
-    return location.pathname === path;
-  };
+  // const isActive = (path: string) => {
+  //   return location.pathname === path;
+  // };
 
   return (
     <nav className="bg-white shadow-lg">
@@ -18,8 +18,8 @@ const Navigation = () => {
               </span>
             </Link>
           </div>
-          
-          <div className="flex items-center space-x-8">
+
+          {/* <div className="flex items-center space-x-8">
             <Link
               to="/"
               className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
@@ -50,7 +50,7 @@ const Navigation = () => {
             >
               Contact
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </nav>
